@@ -3,29 +3,981 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Carattere&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Outfit:wght@100..900&family=Reem+Kufi:wght@400..700&family=Reggae+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Splitter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="icon" href="Images/logo.png" type="image/x-icon">
     <title>Gurjant Singh</title>
+</head>
+<body>
     <style>
+        .demo{
+         font-family: "Reem Kufi", sans-serif;
+         font-family: "Outfit", sans-serif;
+         font-family: "Fraunces", serif;
+         font-family: "Reggae One", system-ui;
+         font-family: "Carattere", cursive;
+        }   
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        a,
+        p {
+            font-family: "Outfit", sans-serif;
+            font-size: 22px;
+            color: #383838;
+            font-weight: normal;
+            line-height: 150%;
+        }
+        h1,h2,h4,h5,h6 {
+            font-family: "Fraunces", serif;
+            color: #283618;
+            font-weight: normal;
+        }
+        #typing-heading,
+        h1 {
+            font-size: 70px;
+            font-family: "Fraunces", serif;
+            color: #283618;
+        }
+        h2 {
+            font-size: 60px;
+        }
+        h3 {
+            font-family: "Reem Kufi", sans-serif;
+            color: #BC6C25;
+            font-size:40px;
+            font-weight: normal;
+        }
+         h5 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
 
-        body {
-            width: 100% !important;
-            max-width: 1400px;
+        header{
+            background:#ffffff;
+            padding:16px 0;
+        }
+        .inner_header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position: relative;
+        }
+        /* .inner_header .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+        } */
+        .navigation ul{
+            list-style:none;
+            display:flex;
+            gap:50px;
+            align-items:center;
+        }
+        .navigation ul li a{
+            text-decoration:none;
+            transition:0.3s;
+        }
+        .navigation ul li a:hover{
+            color:#c46b2a;
+        }
+        .nav_btn a{
+            background:#c46b2a;
+            color:#fff !important;
+            padding:10px 22px;
+            border-radius:6px;
+            display: inline-block;
+        }
+        .inner_header .logo img {
+            width: 100px;
+            max-width: 100%;
+        }
+
+        /* BANNER */
+        .banner_text #typing-heading {
+            margin: 20px 0 30px 0;
+        }
+        .banner{
+            background:#FFE9DA;
+            padding:100px 0;
+        }
+        .banner_inner{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:110px;
+        }
+        .signature{
+            font-size:40px;
+            color:#283618;
+            border-bottom: 2px solid #283618; 
+            font-family: "Carattere", cursive;
+            font-weight: normal;
+            padding-bottom: 5px ;
+            display: inline-block;
+            width: auto;
+            margin-top: 60px;
+                transform: rotate(-10deg);
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 14px 0px #16161657;
+            aspect-ratio: 1 / 1;
+        }
+
+        .banner .image_part {
+            width: 420px !important;
+        }
+
+        .banner_text {
+            width: calc(100% - 420px)
+        }
+        
+
+        /* ABOUT */
+        .about_me{
+            padding:100px 0;
+            background:#fff;
+        }
+        .about_me_inner{
+            display:flex;
+            align-items:flex-end;
+            justify-content:space-between;
+            gap:90px;
+        }
+        .about_me .image_part {
+            width: 465px;
+        }
+        .about_me img{
+            width:100%;
+            aspect-ratio: 1/1;
+            border-radius:50%;
+            border:4px solid #BC6C25;
+            object-fit: cover;
+        }
+        .about_me .text_section {
+            width: calc(100% - 466px);
+        }
+        .about_me .text_section h2 {
+            margin: 10px 0 30px 0;
+        }
+
+        /*       EDUCATION     */
+        .education_inner{
+            background:#606C3815;
+            padding:60px 40px;
+            border-radius: 10px;
+            display: flex;
+            gap: 60px;
+        }
+
+        /* skill */
+
+        .skill {
+            padding: 100px 0;
+        }
+
+        .skill_header {
+            text-align: center;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        body img {
-            width: 100%;
-            max-width: 100%;   
-            height: auto;   
+        .skill_header h2 {
+            margin: 10px 0 20px 0;
         }
-    </style>
-</head>
+        .skill_body {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top:60px;
+        }
 
-<body>
-    <img src="images/Home.jpg" alt="Home Image">
+        .skill_box {
+            background-color: #E7E9E1;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        .skill_box:nth-child(even) {
+            background-color: #FFE9DA;
+        }
+        .skill_box ul li {
+            list-style: none;
+            padding: 10px 0 0 30px;
+            position: relative;
+        }
+
+        .skill_box ul li:before {
+            background-color: #BC6C25;
+            content: "";
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            border-radius: 100%;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+       /*  experience  */
+
+
+       .experience {
+            padding: 100px 0;
+            background-color: #F9F9F9;
+        }
+
+        .experience_header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .experience_header h2 {
+            margin-top: 16px;
+        }
+        .number_box span {
+            font-family: "Reggae One", system-ui;
+            font-size: 40px;
+        }
+        .number_box {
+            background-color: #E7E9E1;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            border-radius: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .experience_body .row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+            gap:200px;
+            position: relative;
+        }
+        .experience_body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .experience_body h3 {
+            font-size: 24px;
+        }
+
+        .experience_body h2 {
+            font-size: 32px;
+            margin: 15px 0 10px 0;
+        }
+        .experience_body .row:before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #BC6C25;
+            border-radius: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        .experience_body .row:after {
+            content: "";
+            width: 4px;
+            height: 80%;
+            display: inline-block;
+            background-color: #BC6C25;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 35px;
+        }
+
+        /* get in touch */
+
+
+        .get_in_touch {
+            padding: 100px 0;
+        }
+        .get_in_touch_body {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 32px;
+                margin-top: 60px;
+            }
+
+            .get_in_touch_box {
+                background-color: #FFE9DA;
+                padding: 30px;
+                border-radius: 10px;
+            }
+
+            .get_in_touch_box .icon_box {
+                width: 80px;
+                height: 80px;
+                background-color: #fff;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .get_in_touch_box .icon_box i {
+                font-size: 34px;
+            }
+
+            .get_in_touch_box h4 {
+                font-size: 28px;
+                margin: 20px 0 10px 0;
+            }
+
+            .get_in_touch_box a {
+                text-decoration: none;
+                transition: 0.3s ease-in-out;
+            }
+
+            .get_in_touch_box a:hover {
+                color: #c06b32;
+            }
+
+            /* footer */
+            footer {
+                background-color: #E7E9E1;
+                padding: 80px 0;
+            }
+
+            .footer_inner {
+                max-width: 800px;
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .footer_inner img {
+                width: 160px;
+            }
+
+            .footer_inner p {
+                margin: 30px 0;
+            }
+            .social_icons {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .social_icons li {
+                list-style: none;
+            }
+
+            .social_icons li a {
+                width: 60px;
+                height: 60px;
+                background-color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                font-size: 26px;
+                text-decoration: none;
+            }
+            body {
+                overflow-x: hidden;
+                
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 999;
+                background-color: #fff;
+            }
+            header.header_sticky .inner_header .logo {
+                position: unset;
+            }
+
+            header.header_sticky .inner_header {
+                justify-content: space-between;
+            }
+
+            header.header_sticky .inner_header .logo img {
+                width: 100px;
+            }
+
+            /* header.header_sticky {
+                padding: 20px 0;
+            } */
+
+            .education_inner {
+                background-image: url(Images/bg.jpg);
+                position: relative;
+                overflow: hidden;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .education_inner:before {
+                content: "";
+                background-color: #000000bd;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            .education_inner h2,.education_inner p {
+                position: relative;
+                color: #fff;
+            }
+            li.nav_btn a:hover {
+                background-color: #27361b;
+            }
+            span.menu_mobile {
+                display: none;
+            }
+
+            @media (max-width:1024px) {
+                #typing-heading, h1 {
+                    font-size: 46px;
+                }
+                a, p {
+                    font-size: 20px;
+                }
+                .banner_inner {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 60px;
+                }
+                h2 {
+                    font-size: 40px;
+                }
+                h3 {
+                    font-size: 30px;
+                }
+                footer,
+                .get_in_touch,
+                .experience,
+                .skill,
+                .about_me,
+                .banner {
+                    padding: 60px 0;
+                }
+                .experience_header {
+                    margin-bottom: 60px;
+                }
+                section,
+                body {
+                    overflow-x: hidden;
+                }
+                .navigation ul {
+                    gap: 30px;
+                }
+
+            }
+            @media (max-width:991px) {
+               .banner_inner {
+                    flex-wrap: wrap;
+                }
+
+                .banner_inner .banner_text {
+                    width: 100%;
+                }
+
+                .about_me_inner {
+                    flex-wrap: wrap;
+                    gap: 40px;
+                }
+
+                .about_me_inner .text_section {
+                    width: 100%;
+                }
+
+                .about_me_inner .image_part {
+                    width: 100%;
+                } 
+                .about_me_inner div#example-anchor {
+                    display: none;
+                }
+                .education_inner {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+                .get_in_touch_body,
+                .skill_body {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+               
+                .banner_inner {
+                    gap: 20px;
+                }
+            }
+            @media (max-width:767px) {
+
+                span.menu_mobile i {
+                    font-size: 22px;
+                    color: #fff;
+                }
+
+                span.menu_mobile {
+                    background-color: #c96a36;
+                    display: inline-block;
+                    padding: 10px;
+                    border-radius: 4px;
+                }
+                    .navigation ul {
+                        display: none;
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        background-color: #ffffff;
+                        padding: 20px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 15px;
+                        top: 100%;
+                    }
+                #typing-heading, h1 {
+                    font-size: 34px;
+                }
+                a, p {
+                    font-size: 18px;
+                }
+
+                h2 {
+                    font-size: 32px;
+                }
+                h5 {
+                    font-size: 26px;
+                }
+                h3 {
+                    font-size: 24px;
+                }
+                 footer,
+                .get_in_touch,
+                .experience,
+                .skill,
+                .about_me,
+                .banner {
+                    padding: 40px 0;
+                }
+                .signature {
+                    font-size: 28px;
+                    margin-top: 26px;
+                    float: right;
+                }
+                .experience_body .row {
+                    grid-template-columns: repeat(1, 1fr);
+                    gap: 20px;
+                    padding-left:50px;
+                }
+                .experience_body .row:after,
+                .experience_body .row:before {
+                    left: 0;
+                    transform: unset;
+                }
+                .experience_body .row:after {
+                    left:8px !important;
+                }
+
+                .experience_body .row:nth-child(even) {display: flex;flex-direction: column-reverse;}
+
+                .number_box {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                .number_box span {
+                    font-size: 26px;
+                }
+
+                .experience_body h3 {
+                    font-size: 20px;
+                }
+
+                .experience_body h2 {
+                    font-size: 28px;
+                    margin: 10px 0 5px 0;
+                }
+                .inner_header {
+                    position: unset;
+                }
+            }
+
+
+    </style>
+
+    <header id="header">
+        <div class="container">
+            <div class="inner_header">
+                <div class="logo">
+                    <img src="Images/logo.png" alt="Logo">
+                </div>
+                <div class="navigation">
+                    <span class="menu_mobile"><i class="fa-solid fa-bars"></i></span>
+                    <ul>
+                        <li> <a href="#about_me">About us</a></li>
+                        <li> <a href="#education">Education </a></li>
+                        <li> <a href="#experience">Experience </a></li>
+                        <li> <a href="#skill">Skill </a></li>
+                        <li class="nav_btn"> <a href="#Contact">Contact Us </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="container">
+            <div class="banner_inner">
+                <div class="image_part" >
+                    <img src="Images/gurjantsinghugala.png" alt="Banner Image">
+                </div>
+                <div class="banner_text">
+                    <h3>Welcome</h3>
+                    <h1 id="typing-heading">Discover My Work, Skills, and Achievements</h1>
+                    <p> I create stunning, user-focused websites and digital experiences that help businesses grow. Specializing in design, Shopify, WordPress, and modern web platforms.</p>
+
+                    <h4 class="signature">Gurjant Singh</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="about_me" id="about_me">
+        <div class="container">
+            <div class="about_me_inner">
+
+                <div class="text_section" data-aos="fade-up" >
+                    <h3>About Me</h3>
+                    <h2>Designing Digital Excellence</h2>
+                    <p>I'm a passionate web designer with expertise in creating beautiful, functional digital experiences. My approach combines user-centered design principles with modern technology to deliver results that matter.
+                    <br>
+                    <br>
+                    Whether it's a custom WordPress site, a Shopify store, or a Wix website, I bring the same level of care and attention to detail to every project. I love solving design challenges and helping businesses stand out online.</p>
+                </div>
+
+                <div id="example-anchor" style="height: 500px; background-color: #f0f0f0;"></div>
+
+
+                <div class="image_part" data-aos="fade-left"
+                    data-aos-anchor="#example-anchor"
+                    data-aos-offset="500"
+                    data-aos-duration="500">
+                    <img src="Images/pcimage.jpg" alt="Banner Image" />
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="education" data-aos="fade-up" id="education">
+        <div class="container">
+            <div class="education_inner">
+                <h2>Education</h2>
+                <p>Completed 10th and 12th Standard.<br>
+                    Studied Bachelor of Science (B.Sc.) in Computer Science, gaining knowledge in programming and computer fundamentals.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="skill" id="skill">
+        <div class="container">
+            <div class="skill_inner">
+                <div class="skill_header" data-aos="fade-up">
+                    <h3>Expertise</h3>
+                    <h2>Skills & Tools</h2>
+                    <p>Proficient in modern design tools and platforms to create exceptional digital experiences.</p>
+                </div>
+                <div class="skill_body">
+                    <div class="skill_box" data-aos="fade-up-right">
+                        <h5>Design Fundamentals</h5>
+                        <ul>
+                            <li><p> HTML & CSS</p></li>
+                            <li><p> JavaScript & jQuery</p></li>
+                            <li><p> Photoshop</p></li>
+                            <li><p> Figma</p></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="skill_box" data-aos="flip-up">
+                        <h5>WordPress Builders</h5>
+                        <ul>
+                            <li><p> Elementor</p></li>
+                            <li><p> Divi & Avada</p></li>
+                            <li><p> Bricks Builder</p></li>
+                            <li><p> Gutenberg & WP Bakery</p></li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="skill_box" data-aos="fade-up-left">
+                        <h5>E-Commerce & Platforms</h5>
+                        <ul>
+                            <li><p> Shopify & HTML</p></li>
+                            <li><p> Wix</p></li>
+                            <li><p> Webflow</p></li>
+                            <li><p> Replo & Shogun</p></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="experience_inner">
+
+                <div class="experience_header" data-aos="fade-up" >
+                    <h3> Trusted Expertise </h3>
+                    <h2>Work Experience</h2>
+                </div>
+                <div class="experience_body">
+                    <div class="row">
+                        <div class="number_box" data-aos="fade-up-right" >
+                        <span>01</span>
+                        </div>
+                        <div class="detail_box" data-aos="fade-up-left">
+                            <h3>June 2017 - June 2019</h3>
+                            <h2>VenusApp Solutions</h2>
+                            <p>Role: Web Designer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="detail_box" data-aos="fade-up-right" >
+                            <h3>Jan 2020 - Dec 2021</h3>
+                            <h2>Coder's Corner</h2>
+                            <p>Role: Web Designer</p>
+                        </div>
+                        <div class="number_box" data-aos="fade-up-left">
+                        <span>02</span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="number_box" data-aos="fade-up-right">
+                        <span>03</span>
+                        </div>
+                        <div class="detail_box" data-aos="fade-up-left">
+                            <h3>Feb  2021 - June 2023</h3>
+                            <h2>The III Solutions</h2>
+                            <p>Role: Sr. Web Designer</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                         <div class="detail_box" data-aos="fade-up-right">
+                            <h3>Mar 2023  - Present</h3>
+                            <h2>Paradise TechSoft Solution</h2>
+                            <p>Role: Sr. Web Designer</p>
+                        </div>
+                        <div class="number_box" data-aos="fade-up-left">
+                        <span>04</span>
+                        </div>
+                       
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="get_in_touch" id="Contact">
+        <div class="container">
+            <div class="get_in_touch_inner">
+                <div class="get_in_touch_header" data-aos="fade-right">
+                    <h2>Let’s Get In Touch </h2>
+                </div>
+
+                <div class="get_in_touch_body">
+
+                    <div class="get_in_touch_box" data-aos="fade-up-right">
+                        <div class="icon_box">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <a href="mailto:gurjantsinghugala@gmail.com" target="_blank">gurjantsinghugala@gmail.com</a>
+                    </div>
+
+                    <div class="get_in_touch_box" data-aos="flip-up">
+                        <div class="icon_box">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h4>Phone</h4>
+                        <a href="tel:+91 735 722 7624" target="_blank">+91 735 722 7624</a>
+                    </div>
+
+
+                    <div class="get_in_touch_box"  data-aos="fade-up-left">
+                        <div class="icon_box">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <h4>Linkdin</h4>
+                        <a href="https://www.linkedin.com/in/gurjant-singh-03132215a" target="_blank">Gurjant Singh</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer_inner" data-aos="fade-up">
+                <img src="Images/logo.png" alt="Logo">
+                <p>Thank you for visiting my portfolio. Feel free to connect with me for any inquiries or collaborations. Your support means a lot!</p>
+               <ul class="social_icons">
+                    <li> <a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                    <li> <a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li> <a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+<script>
+
+        function animateTyping() {
+            let text = document.getElementById("typing-heading");
+            let textContent = text.textContent;
+            text.innerHTML = '';  
+
+     
+            textContent.split('').forEach(char => {
+                let span = document.createElement("span");
+                span.classList.add("letter");
+                span.textContent = char;
+                text.appendChild(span);
+            });
+
+            
+            gsap.fromTo(".letter", 
+                {
+                    opacity: 0,
+                    x: -30  
+                },
+                {
+                    opacity: 1, 
+                    x: 0,        
+                    duration: 0.15,
+                    stagger: 0.1,
+                    onComplete: () => {
+                        
+                        setTimeout(animateTyping, 2000); 
+                    }
+                });
+        }
+        window.addEventListener('load', () => {
+            animateTyping(); 
+        });
+
+        // ==================
+
+
+
+  // Initialize AOS
+        AOS.init({
+            once: false, 
+            duration: 1000, 
+            easing: 'ease-out-cubic', 
+            offset: 100, 
+        });
+
+//  header
+ gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.create({
+            trigger: "header", 
+            start: "top ",  
+             end: "bottom top", 
+            pin: false,        
+            onEnter: function() {
+                document.getElementById('header').classList.add('header_sticky');
+            },
+            onLeaveBack: function() {
+                document.getElementById('header').classList.remove('header_sticky');
+            },
+            markers: false 
+        });
+
+
+          document.querySelectorAll('.navigation ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href').substring(1);  // Get target section's ID
+      const targetElement = document.getElementById(targetId);
+      
+      window.scrollTo({
+        top: targetElement.offsetTop - document.querySelector('header').offsetHeight,  // Adjust scroll offset
+        behavior: 'smooth'  // Smooth scroll
+      });
+    });
+  });
+
+
+  // menu 
+
+const menuBtn = document.querySelector('.menu_mobile');
+  const navMenu = document.querySelector('.navigation ul');
+  const navLinks = document.querySelectorAll('.navigation ul li a');
+
+  // Menu toggle
+  menuBtn.addEventListener('click', function() {
+    if (navMenu.style.display === 'flex') {
+      navMenu.style.display = 'none';
+    } else {
+      navMenu.style.display = 'flex';
+    }
+  });
+
+  // Close menu when any link is clicked
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      navMenu.style.display = 'none';
+    });
+  });
+
+    </script>
+
 </body>
 </html>
