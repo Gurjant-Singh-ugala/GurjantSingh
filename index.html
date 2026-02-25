@@ -957,23 +957,32 @@
 
   // menu 
 
-const menuBtn = document.querySelector('.menu_mobile');
+
+  const menuBtn = document.querySelector('.menu_mobile');
   const navMenu = document.querySelector('.navigation ul');
   const navLinks = document.querySelectorAll('.navigation ul li a');
 
+  function isMobile() {
+    return window.matchMedia("(max-width: 767px)").matches;
+  }
+
   // Menu toggle
   menuBtn.addEventListener('click', function() {
-    if (navMenu.style.display === 'flex') {
-      navMenu.style.display = 'none';
-    } else {
-      navMenu.style.display = 'flex';
+    if (isMobile()) {
+      if (navMenu.style.display === 'flex') {
+        navMenu.style.display = 'none';
+      } else {
+        navMenu.style.display = 'flex';
+      }
     }
   });
 
   // Close menu when any link is clicked
   navLinks.forEach(function(link) {
     link.addEventListener('click', function() {
-      navMenu.style.display = 'none';
+      if (isMobile()) {
+        navMenu.style.display = 'none';
+      }
     });
   });
 
